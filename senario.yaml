@@ -1,0 +1,78 @@
+scenarios:
+  -
+    type: xxx
+    options:
+      attackers:
+        -
+          host: node3
+          key: attack_001
+          resultChecker: xxx
+          scripts:
+            checkScript: xxx
+            injectScript: xxx
+            recoverScript: xxx
+        -
+          hostname: node3
+          key: attack_002
+          scripts:
+            checkScript: xxx
+            injectScript: xxx
+            recoverScript: xxx
+      monitors:
+        -
+          SLA: "max_recover_time:xxx"
+          host: node4
+          key: monitor_001
+          monitor_time: 10
+          resultChecker: xxx
+        -
+          SLA: "max_recover_time:xxx"
+          host: node4
+          key: monitor_002
+          monitor_time: 10
+          resultChecker: xxx
+      operation:
+        actionType: normal|stopingMonitor
+        additionalKey:
+          - xxx
+          - xxx
+        cmd: ""
+        key: op1
+      resultChecker:
+        -
+          SLA: "outageTime:xxx"
+          expectedValue: ""
+          key: check_volumns_after_cinder_create
+          type: checkpoint
+        -
+          SLA: "outageTime:xxx"
+          conditon: eq
+          leftLeg: ""
+          legResultType: string/number
+          rightLeg: ""
+          type: checkpointsValidator
+      steps:
+        -
+          actionKey: xxx
+          actionType: 2
+          index: 5
+        -
+          actionKey: op1
+          actionType: 3
+          index: 4
+        -
+          actionKey: xxx
+          actionType: 2
+          index: 3
+        -
+          actionKey: monitor001
+          actionType: 1
+          index: 2
+        -
+          actionKey: xxx
+          actionType: 0
+          index: 1
+        -
+          actionKey: xxx
+          actionType: 0
+          index: 0
